@@ -1,4 +1,4 @@
-import { FETCH_FAIL, FETCH_START, FETCH_SUCCESS } from "../actions";
+import { FETCH_FAIL, FETCH_START, FETCH_SUCCESS, REMOVE_NATIONALIZE } from "../actions";
 
 const initialState = {
     name: '',
@@ -45,6 +45,14 @@ export const reducer = (state = initialState, action) => {
                 country: action.payload.country,
                 isFetching: false,
                 error: ''
+            }
+        case REMOVE_NATIONALIZE:
+            return {
+                ...state,
+                name:'',
+                country: [],
+                isFetching: false,
+                error:''
             }
         default:
             return state;
